@@ -1,6 +1,6 @@
 {
   "name": "rosetta-node-sdk",
-  "version": "1.4.1b",
+  "version": "1.4.10",
   "description": "A Standard for Blockchain Interaction",
   "main": "index.js",
   "scripts": {
