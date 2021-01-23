@@ -29,6 +29,7 @@ paths:
         This endpoint returns a list of NetworkIdentifiers that the Rosetta
         server supports.
       operationId: networkList
+      x-eov-operation-handler: controllers/NetworkController
       tags:
         - Network
       requestBody:
@@ -57,6 +58,7 @@ paths:
         This endpoint returns the current status of the network requested. Any
         NetworkIdentifier returned by /network/list should be accessible here.
       operationId: networkStatus
+      x-eov-operation-handler: controllers/NetworkController
       tags:
         - Network
       requestBody:
@@ -89,6 +91,7 @@ paths:
         Because options are retrievable in the context of a NetworkIdentifier,
         it is possible to define unique options for each network.
       operationId: networkOptions
+      x-eov-operation-handler: controllers/NetworkController
       tags:
         - Network
       requestBody:
@@ -128,6 +131,7 @@ paths:
         given that a chain reorg event might cause the specific block at
         height `n` to be set to a different one.
       operationId: block
+      x-eov-operation-handler: controllers/BlockController
       tags:
         - Block
       requestBody:
@@ -177,6 +181,7 @@ paths:
         cache within the Rosetta server in the /data directory
         (on a path that does not conflict with the node).
       operationId: blockTransaction
+      x-eov-operation-handler: controllers/BlockController
       tags:
         - Block
       requestBody:
@@ -203,6 +208,7 @@ paths:
       summary: Get All Mempool Transactions
       description: Get all Transaction Identifiers in the mempool
       operationId: mempool
+      x-eov-operation-handler: controllers/MempoolController
       tags:
         - Mempool
       requestBody:
@@ -238,6 +244,7 @@ paths:
         executed). On this endpoint, it is ok that returned transactions are
         only estimates of what may actually be included in a block.
       operationId: mempoolTransaction
+      x-eov-operation-handler: controllers/MempoolController
       tags:
         - Mempool
       requestBody:
@@ -281,6 +288,7 @@ paths:
         It is also possible to perform a historical balance lookup (if the server
         supports it) by passing in an optional BlockIdentifier.
       operationId: accountBalance
+      x-eov-operation-handler: controllers/AccountController
       tags:
         - Account
       requestBody:
@@ -324,6 +332,7 @@ paths:
         unspent coins based on the contents of the mempool. Note, using this functionality
         breaks any guarantee of idempotency.
       operationId: accountCoins
+      x-eov-operation-handler: controllers/AccountController
       tags:
         - Account
       requestBody:
@@ -354,6 +363,7 @@ paths:
         Blockchains that require an on-chain action to create an
         account should not implement this method.
       operationId: constructionDerive
+      x-eov-operation-handler: controllers/ConstrucionController
       tags:
         - Construction
       requestBody:
@@ -389,6 +399,7 @@ paths:
         be specified in the `/construction/preprocess` request (in the `metadata`
         field).
       operationId: constructionPreprocess
+      x-eov-operation-handler: controllers/ConstrucionController
       tags:
         - Construction
       requestBody:
@@ -429,6 +440,7 @@ paths:
         This endpoint is left purposely unstructured because of the wide scope
         of metadata that could be required.
       operationId: constructionMetadata
+      x-eov-operation-handler: controllers/ConstrucionController
       tags:
         - Construction
       requestBody:
@@ -466,6 +478,7 @@ paths:
         parsing the corresponding transaction in the Data API (when it lands on chain)
         will contain a superset of whatever operations were provided during construction.
       operationId: constructionPayloads
+      x-eov-operation-handler: controllers/ConstrucionController
       tags:
         - Construction
       requestBody:
@@ -497,6 +510,7 @@ paths:
         The signed transaction returned from this method will be sent to the
         `/construction/submit` endpoint by the caller.
       operationId: constructionCombine
+      x-eov-operation-handler: controllers/ConstructionController
       tags:
         - Construction
       requestBody:
@@ -528,6 +542,7 @@ paths:
         This is run as a sanity check before signing (after `/construction/payloads`)
         and before broadcast (after `/construction/combine`).
       operationId: constructionParse
+      x-eov-operation-handler: controllers/ConstructionController
       tags:
         - Construction
       requestBody:
@@ -556,6 +571,7 @@ paths:
         TransactionHash returns the network-specific transaction hash for
         a signed transaction.
       operationId: constructionHash
+      x-eov-operation-handler: controllers/ConstructionController
       tags:
         - Construction
       requestBody:
@@ -590,6 +606,7 @@ paths:
         if the submitted transaction could be included in the mempool.
         Otherwise, it should return an error.
       operationId: constructionSubmit
+      x-eov-operation-handler: controllers/ConstructionController
       tags:
         - Construction
       requestBody:
@@ -632,6 +649,7 @@ paths:
         that the average integrator will use layered Rosetta API implementations
         that each surfaces unique data.
       operationId: call
+      x-eov-operation-handler: controllers/CallHandler
       tags:
         - Call
       requestBody:
@@ -670,6 +688,7 @@ paths:
         to adhere to the Rosetta spec. However, any Rosetta "indexer"
         MUST support this endpoint.
       operationId: eventsBlocks
+      x-eov-operation-handler: controllers/EventsController
       tags:
         - Events
       requestBody:
@@ -707,6 +726,7 @@ paths:
         to adhere to the Rosetta spec. However, any Rosetta "indexer"
         MUST support this endpoint.
       operationId: searchTransactions
+      x-eov-operation-handler: controllers/SearchController
       tags:
         - Search
       requestBody:
