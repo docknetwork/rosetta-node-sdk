@@ -363,7 +363,7 @@ paths:
         Blockchains that require an on-chain action to create an
         account should not implement this method.
       operationId: constructionDerive
-      x-eov-operation-handler: controllers/ConstrucionController
+      x-eov-operation-handler: controllers/ConstructionController
       tags:
         - Construction
       requestBody:
@@ -399,7 +399,7 @@ paths:
         be specified in the `/construction/preprocess` request (in the `metadata`
         field).
       operationId: constructionPreprocess
-      x-eov-operation-handler: controllers/ConstrucionController
+      x-eov-operation-handler: controllers/ConstructionController
       tags:
         - Construction
       requestBody:
@@ -440,7 +440,7 @@ paths:
         This endpoint is left purposely unstructured because of the wide scope
         of metadata that could be required.
       operationId: constructionMetadata
-      x-eov-operation-handler: controllers/ConstrucionController
+      x-eov-operation-handler: controllers/ConstructionController
       tags:
         - Construction
       requestBody:
@@ -478,7 +478,7 @@ paths:
         parsing the corresponding transaction in the Data API (when it lands on chain)
         will contain a superset of whatever operations were provided during construction.
       operationId: constructionPayloads
-      x-eov-operation-handler: controllers/ConstrucionController
+      x-eov-operation-handler: controllers/ConstructionController
       tags:
         - Construction
       requestBody:
