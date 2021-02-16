@@ -649,7 +649,7 @@ paths:
         that the average integrator will use layered Rosetta API implementations
         that each surfaces unique data.
       operationId: call
-      x-eov-operation-handler: controllers/CallHandler
+      x-eov-operation-handler: controllers/CallController
       tags:
         - Call
       requestBody:
